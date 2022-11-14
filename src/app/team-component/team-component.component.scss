@@ -3,12 +3,11 @@ button:last-child {
 }
 
 .playersContainer {
-  margin-top: 3rem;
+  margin: 3rem 0 2rem 0;
   display: flex;
 }
 
 .playerCard {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,4 +25,9 @@ button:last-child {
   text-align: center;
   margin-top: 0.8rem;
   padding: 0;
+}
+
+.role {
+  text-align: center;
+  transform: translateY(-1.3rem);
 }
