@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { TeamComponentComponent } from './team-component/team-component.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, TeamComponentComponent],
@@ -21,6 +22,7 @@ import { TeamComponentComponent } from './team-component/team-component.componen
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
