@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { player } from 'src/types/player';
 import { team } from 'src/types/team';
 import { HttpService } from '../config/http.service';
@@ -15,6 +15,8 @@ export class TeamComponentComponent implements OnInit {
   teamData: team | undefined;
   players: player[] = [];
 
+  @Output() deleteTeamEvent = new EventEmitter<string>();
+
   ngOnInit(): void {
     this.teamData?.players.map((player) => {
       this.http.getPlayer(player).subscribe((data) => {
@@ -22,10 +24,10 @@ export class TeamComponentComponent implements OnInit {
         this.players.push((fetchedPlayer as any).data);
       });
     });
-    console.log(this.players);
   }
 
   deleteTeam(id: string): void {
-    this.http.deleteTeam(id);
+    this.http.deleteTeam(id).subscribe((data) => console.log(data));
+    this.deleteTeamEvent.emit(id);
   }
 }
