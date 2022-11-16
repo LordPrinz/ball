@@ -24,4 +24,8 @@ export class TeamComponentComponent implements OnInit {
     });
     console.log(this.players);
   }
+
+  deleteTeam(id: string): void {
+    this.http.deleteTeam(id);
+  }
 }

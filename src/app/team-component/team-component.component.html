@@ -3,7 +3,7 @@
     <mat-card-content class="playersContainer">
         <div class="playerCard" *ngFor="let player of players">
             <img class="image" mat-card-md-image src="{{ player.image }}" />
-            <h3 class="name">{{ player.name }}</h3>
+            <h3 class="name">{{ player.name }} {{ player.surname }}</h3>
             <div class="role">{{ player.role }}</div>
         </div>
     </mat-card-content>
@@ -12,7 +12,7 @@
       Edit Team
       <mat-icon>edit</mat-icon>
     </button>
-        <button mat-flat-button color="warn">
+        <button mat-flat-button color="warn" (click)="deleteTeam(teamData!._id)">
       Delete Team
       <mat-icon>delete</mat-icon>
     </button>
