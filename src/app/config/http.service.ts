@@ -20,4 +20,7 @@ export class HttpService {
   deleteTeam(id: string) {
     return this.http.delete(`${this.baseUrl}/teams/${id}`);
   }
+  getPlayer(id: string) {
+    return this.http.get(`${this.baseUrl}/players/${id}`);
+  }
 }

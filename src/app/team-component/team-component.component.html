@@ -1,10 +1,10 @@
 <mat-card class="mainCover">
-    <mat-card-title>TEAM 1</mat-card-title>
+    <mat-card-title>{{ teamData?.name || "untitled" }}</mat-card-title>
     <mat-card-content class="playersContainer">
-        <div class="playerCard">
-            <img class="image" mat-card-md-image src="https://s1.tvp.pl/images2/1/0/3/uid_10397349b1bcd9ee79a356cf11054aac1658411396004_width_1200_play_0_pos_0_gs_0_height_678_manuel-neuer-fot-getty.jpg" />
-            <h3 class="name">Manuel Neuer</h3>
-            <div class="role">GK</div>
+        <div class="playerCard" *ngFor="let player of players">
+            <img class="image" mat-card-md-image src="{{ player.image }}" />
+            <h3 class="name">{{ player.name }}</h3>
+            <div class="role">{{ player.role }}</div>
         </div>
     </mat-card-content>
     <mat-card-actions>

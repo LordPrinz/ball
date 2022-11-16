@@ -13,7 +13,15 @@ export class TeamComponentComponent implements OnInit {
 
   @Input()
   teamData: team | undefined;
-  players: player[] | undefined;
+  players: player[] = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.teamData?.players.map((player) => {
+      this.http.getPlayer(player).subscribe((data) => {
+        const fetchedPlayer = data;
+        this.players.push((fetchedPlayer as any).data);
+      });
+    });
+    console.log(this.players);
+  }
 }
