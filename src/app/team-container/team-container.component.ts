@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { team } from 'src/types/team';
 import { HttpService } from '../config/http.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { HttpService } from '../config/http.service';
 export class TeamContainerComponent implements OnInit {
   constructor(private http: HttpService) {}
 
-  teams: any;
+  teams!: team[];
 
   ngOnInit(): void {
     this.http.getTeams().subscribe((data) => {

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { player } from 'src/types/player';
+import { team } from 'src/types/team';
 import { HttpService } from '../config/http.service';
 
 @Component({
@@ -10,11 +12,8 @@ export class TeamComponentComponent implements OnInit {
   constructor(private http: HttpService) {}
 
   @Input()
-  teamData: any;
+  teamData: team | undefined;
+  players: player[] | undefined;
 
-  teams: any;
-
-  ngOnInit(): void {
-    console.log(this.teamData);
-  }
+  ngOnInit(): void {}
 }
