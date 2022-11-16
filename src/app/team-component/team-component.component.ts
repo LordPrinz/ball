@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpService } from '../config/http.service';
 
 @Component({
@@ -9,11 +9,12 @@ import { HttpService } from '../config/http.service';
 export class TeamComponentComponent implements OnInit {
   constructor(private http: HttpService) {}
 
+  @Input()
+  teamData: any;
+
   teams: any;
 
   ngOnInit(): void {
-    this.http.getTeams().subscribe((data) => {
-      this.teams = (data as any).data;
-    });
+    console.log(this.teamData);
   }
 }

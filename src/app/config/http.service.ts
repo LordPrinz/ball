@@ -17,4 +17,7 @@ export class HttpService {
   getTeam(id: string) {
     return this.http.get(`${this.baseUrl}/teams/${id}`);
   }
+  deleteTeam(id: string) {
+    return this.http.delete(`${this.baseUrl}/teams/${id}`);
+  }
 }
