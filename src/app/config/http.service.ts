@@ -14,4 +14,7 @@ export class HttpService {
   getTeams() {
     return this.http.get(`${this.baseUrl}/teams`);
   }
+  getTeam(id: string) {
+    return this.http.get(`${this.baseUrl}/teams/${id}`);
+  }
 }
