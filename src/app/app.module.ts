@@ -12,9 +12,10 @@ import { MatCardModule } from '@angular/material/card';
 import { TeamComponentComponent } from './team-component/team-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TeamContainerComponent } from './team-container/team-container.component';
+import { PlayerGeneratorComponent } from './player-generator/player-generator.component';
 
 @NgModule({
-  declarations: [AppComponent, TeamComponentComponent, TeamContainerComponent],
+  declarations: [AppComponent, TeamComponentComponent, TeamContainerComponent, PlayerGeneratorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
