@@ -17,4 +17,7 @@ export class AppComponent {
   createTeamRedirectHandler() {
     this.router.navigate(['/teams/new']);
   }
+  teamsRedirectHandler() {
+    this.router.navigate(['/']);
+  }
 }

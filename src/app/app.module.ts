@@ -14,9 +14,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { TeamContainerComponent } from './team-container/team-container.component';
 import { PlayerGeneratorComponent } from './player-generator/player-generator.component';
 import { TeamGeneratorComponent } from './team-generator/team-generator.component';
+import { PlayersListComponent } from './players-list/players-list.component';
+import { PlayerDetailComponent } from './player-detail/player-detail.component';
+import { TeamDetailComponent } from './team-detail/team-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, TeamComponentComponent, TeamContainerComponent, PlayerGeneratorComponent, TeamGeneratorComponent],
+  declarations: [AppComponent, TeamComponentComponent, TeamContainerComponent, PlayerGeneratorComponent, TeamGeneratorComponent, PlayersListComponent, PlayerDetailComponent, TeamDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
