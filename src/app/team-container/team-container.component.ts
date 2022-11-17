@@ -17,4 +17,8 @@ export class TeamContainerComponent implements OnInit {
       this.teams = (data as any).data;
     });
   }
+
+  deleteTeamHandler(id: string): void {
+    this.teams = this.teams.filter((team) => team._id != id);
+  }
 }

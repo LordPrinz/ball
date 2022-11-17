@@ -15,7 +15,7 @@ export class TeamComponentComponent implements OnInit {
   teamData: team | undefined;
   players: player[] = [];
 
-  @Output() deleteTeamEvent = new EventEmitter<string>();
+  @Output() onDeleteTeam = new EventEmitter<string>();
 
   ngOnInit(): void {
     this.teamData?.players.map((player) => {
@@ -27,7 +27,7 @@ export class TeamComponentComponent implements OnInit {
   }
 
   deleteTeam(id: string): void {
-    this.http.deleteTeam(id).subscribe((data) => console.log(data));
-    this.deleteTeamEvent.emit(id);
+    this.http.deleteTeam(id);
+    this.onDeleteTeam.emit(id);
   }
 }
