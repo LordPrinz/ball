@@ -2,9 +2,14 @@
     <mat-card-title>{{ teamData?.name || "untitled" }}</mat-card-title>
     <mat-card-content class="playersContainer">
         <div class="playerCard" *ngFor="let player of players">
-            <img class="image" mat-card-md-image src="{{ player.image }}" />
-            <h3 class="name">{{ player.name }} {{ player.surname }}</h3>
-            <div class="role">{{ player.role }}</div>
+            <img class="image" mat-card-md-image src="{{
+          player?.image ||
+            'https://img.kaiheila.cn/emojis/5235203156208166/0143387bb3d4520go0go.png'
+        }}" />
+            <h3 class="name">
+                {{ player?.name || "Deleted" }} {{ player?.surname || "Player" }}
+            </h3>
+            <div class="role">{{ player?.role || "unknown" }}</div>
         </div>
     </mat-card-content>
     <mat-card-actions>

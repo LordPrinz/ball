@@ -8,7 +8,7 @@ export enum Roles {
   'Attacking Midfielders',
   Wingers,
   'Inside Forwards',
-  'Strikers',
+  'Striker',
 }
 
 export type player = {

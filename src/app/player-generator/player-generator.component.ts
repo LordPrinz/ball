@@ -71,7 +71,13 @@ export class PlayerGeneratorComponent implements OnInit {
         role: this.role,
         image: this.selectedFile,
       })
-      .subscribe((data) => alert('Data send!'));
+      .subscribe((data) => {
+        if ((data as any).status === 'success') {
+          alert('Player Created!');
+        } else {
+          alert('Something went wrong!');
+        }
+      });
 
     this.name = null;
     this.age = null;
