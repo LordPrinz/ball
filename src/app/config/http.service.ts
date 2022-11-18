@@ -23,4 +23,14 @@ export class HttpService {
   getPlayer(id: string) {
     return this.http.get(`${this.baseUrl}/players/${id}`);
   }
+  createPlayer({ name, surname, age, club, role, image }: any) {
+    const fd = new FormData();
+    fd.append('image', image, image.name);
+    fd.append('name', name);
+    fd.append('surname', surname);
+    fd.append('club', club);
+    fd.append('role', role);
+    fd.append('age', age);
+    return this.http.post(`${this.baseUrl}/players`, fd);
+  }
 }

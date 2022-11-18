@@ -21,10 +21,6 @@ const routes: Routes = [
     component: TeamGeneratorComponent,
   },
   {
-    path: 'players',
-    component: PlayersListComponent,
-  },
-  {
     path: 'players/new',
     component: PlayerGeneratorComponent,
   },

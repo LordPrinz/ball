@@ -1,0 +1,24 @@
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-top: 10rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.heading {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+}
+
+.input {
+    margin: 1rem 0;
+}

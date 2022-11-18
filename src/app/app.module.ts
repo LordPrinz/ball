@@ -17,9 +17,21 @@ import { TeamGeneratorComponent } from './team-generator/team-generator.componen
 import { PlayersListComponent } from './players-list/players-list.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
-
+import { MatInputModule } from '@angular/material/input';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [AppComponent, TeamComponentComponent, TeamContainerComponent, PlayerGeneratorComponent, TeamGeneratorComponent, PlayersListComponent, PlayerDetailComponent, TeamDetailComponent],
+  declarations: [
+    AppComponent,
+    TeamComponentComponent,
+    TeamContainerComponent,
+    PlayerGeneratorComponent,
+    TeamGeneratorComponent,
+    PlayersListComponent,
+    PlayerDetailComponent,
+    TeamDetailComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,9 +40,17 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
     HttpClientModule,
+    MatSelectModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { floatLabel: 'always' },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
