@@ -20,5 +20,6 @@ export class TeamContainerComponent implements OnInit {
 
   deleteTeamHandler(id: string): void {
     this.teams = this.teams.filter((team) => team._id != id);
+    this.http.deleteTeam(id).subscribe((data) => {});
   }
 }

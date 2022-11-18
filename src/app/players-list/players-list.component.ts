@@ -15,6 +15,7 @@ export class PlayersListComponent implements OnInit {
 
   deleteHandler(id: any): void {
     this.allPlayers = this.allPlayers?.filter((p) => p._id !== id);
+    this.http.deletePlayer(id).subscribe((response) => {});
   }
 
   ngOnInit(): void {
