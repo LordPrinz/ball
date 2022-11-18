@@ -60,7 +60,7 @@ export class PlayerGeneratorComponent implements OnInit {
       isEmpty(this.role) ||
       isEmpty(this.selectedFile)
     ) {
-      return;
+      return alert('Some fileds are empty!');
     }
     this.http
       .createPlayer({

@@ -1,1 +1,20 @@
-<p>players-list works!</p>
+<div class="container">
+    <div *ngFor="let player of allPlayers" class="player">
+        <div class="image__container">
+            <img class="image" src="{{ player?.image }}" />
+        </div>
+        <div class="name">
+            {{ player?.name }} {{ player?.surname }}
+            <span class="role">{{ player?.role }}</span>
+        </div>
+        <div class="details details--1">
+            <span class="key">Age</span>
+            <span class="value"> {{ player?.age }} </span>
+        </div>
+        <mat-divider class="divider"></mat-divider>
+        <div class="details">
+            <span class="key">Club</span>
+            <span class="value"> {{ player?.club }} </span>
+        </div>
+    </div>
+</div>

@@ -21,6 +21,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +47,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatDividerModule,
+    MatGridListModule,
   ],
   providers: [
     {

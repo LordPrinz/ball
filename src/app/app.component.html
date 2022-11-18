@@ -1,5 +1,10 @@
 <mat-toolbar color="primary">
-    <span class="title">{{ currentPage }}</span>
+    <button mat-button color="link" (click)="playersRedirectHandler()">
+    Players
+  </button>
+    <button mat-button color="link" (click)="teamsRedirectHandler()">
+    Teams
+  </button>
     <span class="example-spacer"></span>
 
     <button mat-button color="link" (click)="createPlayerRedirectHandler()">

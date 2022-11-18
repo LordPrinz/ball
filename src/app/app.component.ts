@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'ball';
-  currentPage = 'xd';
+  currentPage = '';
 
   constructor(private router: Router) {}
 
@@ -17,5 +17,11 @@ export class AppComponent {
   }
   createTeamRedirectHandler() {
     this.router.navigate(['/teams/new']);
+  }
+  playersRedirectHandler() {
+    this.router.navigate(['/players']);
+  }
+  teamsRedirectHandler() {
+    this.router.navigate(['/teams']);
   }
 }
