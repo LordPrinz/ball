@@ -1,5 +1,13 @@
 <div class="container">
-    <div *ngFor="let player of allPlayers" class="player">
+    <div class="player" id="{{ player._id }}" (mouseover)="hovering = player._id" (mouseleave)="hovering = null" *ngFor="let player of allPlayers">
+        <div class="controller" *ngIf="hovering == player._id">
+            <button mat-fab color="warn" aria-label="Example icon button with a delete icon" (click)="deleteHandler(player._id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon>edit</mat-icon>
+      </button>
+        </div>
         <div class="image__container">
             <img class="image" src="{{ player?.image }}" />
         </div>

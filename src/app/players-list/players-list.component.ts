@@ -9,8 +9,13 @@ import { HttpService } from '../config/http.service';
 })
 export class PlayersListComponent implements OnInit {
   allPlayers: player[] | undefined;
+  hovering: string | null = null;
 
   constructor(private http: HttpService) {}
+
+  deleteHandler(id: any): void {
+    this.allPlayers = this.allPlayers?.filter((p) => p._id !== id);
+  }
 
   ngOnInit(): void {
     this.http.getPlayers().subscribe((data) => {

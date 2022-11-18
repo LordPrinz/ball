@@ -11,8 +11,8 @@
     min-width: 20rem;
     max-width: 30rem;
     border: 1px solid #eee;
-    border-bottom-right-radius: 6rem;
-    border-bottom-left-radius: 6rem;
+    border-bottom-right-radius: 4rem;
+    border-bottom-left-radius: 4rem;
     padding-bottom: 1.5rem;
     position: relative;
 }
@@ -75,4 +75,17 @@
     width: 85%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.controller {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    width: 100%;
+    &> :last-child {
+        transform: scale(0.65) translate(3rem, -3rem);
+    }
+    &> :first-child {
+        transform: scale(0.65) translate(-3rem, -3rem);
+    }
 }
