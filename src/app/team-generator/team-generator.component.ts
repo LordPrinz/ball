@@ -7,4 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamGeneratorComponent implements OnInit {
   ngOnInit(): void {}
+
+  name: string = '';
+
+  nameInputHandler(event: any) {
+    this.name = event.target.value;
+  }
 }

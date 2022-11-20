@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MatDividerModule } from '@angular/material/divider';
     ReactiveFormsModule,
     MatDividerModule,
     MatGridListModule,
+    MatListModule,
   ],
   providers: [
     {
