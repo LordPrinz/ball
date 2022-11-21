@@ -1,24 +1,66 @@
 .form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-    margin-top: 10rem;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 10rem;
 }
 
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .heading {
-    font-size: 3rem;
-    margin-bottom: 4rem;
+  font-size: 3rem;
+  margin-bottom: 4rem;
 }
 
 .input {
-    margin: 1rem 0;
+  margin: 1rem 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.btn-bwm {
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  overflow: visible;
+  font-weight: normal;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-top-color: rgba(0, 0, 0, 0.12);
+  border-right-color: rgba(0, 0, 0, 0.12);
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+  border-left-color: rgba(0, 0, 0, 0.12);
+  padding: 0 15px;
+  line-height: 34px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
 }
