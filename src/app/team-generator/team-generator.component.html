@@ -32,7 +32,9 @@
         </div>
       </mat-list-item>
     </mat-list>
-    <button class="addNew" mat-stroked-button>Add Player</button>
+    <button class="addNew" mat-stroked-button (onClick)="openDialog()">
+      Add Player
+    </button>
     <button class="submit" mat-stroked-button (onClick)="submitHandler()">
       Submit
     </button>

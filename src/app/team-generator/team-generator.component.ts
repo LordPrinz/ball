@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { player } from 'src/types/player';
 import { HttpService } from '../config/http.service';
 
@@ -8,7 +9,7 @@ import { HttpService } from '../config/http.service';
   styleUrls: ['./team-generator.component.scss'],
 })
 export class TeamGeneratorComponent implements OnInit {
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService, public dialog: MatDialog) {}
 
   selectedPlayers: player[] = [];
   notSelectedPlayers: player[] = [];
@@ -44,4 +45,6 @@ export class TeamGeneratorComponent implements OnInit {
   submitHandler() {
     console.log('XD');
   }
+
+  openDialog() {}
 }
