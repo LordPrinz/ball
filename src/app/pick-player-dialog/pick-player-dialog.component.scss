@@ -1,0 +1,58 @@
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.players {
+  display: flex;
+  gap: 2rem;
+}
+
+.container {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.list__item {
+  &:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+    padding: 2rem 0;
+  }
+}
+
+.player {
+  display: flex;
+  max-height: 100px;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+.name {
+  margin-right: 8px;
+  margin-left: 10px;
+}
+.submit {
+  margin-top: 4rem;
+}
+.role {
+  flex: 1;
+  text-align: center;
+}
+.img {
+  width: 100%;
+  object-fit: cover;
+  &__cover {
+    width: 70px;
+  }
+}
+
+.addNew {
+  margin-right: 10px;
+}

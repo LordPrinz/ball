@@ -48,9 +48,13 @@ export class TeamGeneratorComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(PickPlayerDialogComponent, {
+    const popup = this.dialog.open(PickPlayerDialogComponent, {
       width: '800px',
-      data: 'RIGHT CLICK',
+      data: this.notSelectedPlayers,
+    });
+
+    popup.afterClosed().subscribe((data) => {
+      console.log(data);
     });
   }
 }

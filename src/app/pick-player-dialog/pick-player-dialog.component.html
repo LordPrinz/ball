@@ -1,1 +1,24 @@
-<p>pick-player-dialog works!</p>
+<mat-list>
+  <mat-list-item
+    class="list__item"
+    role="listitem"
+    *ngFor="let player of players"
+  >
+    <div class="player">
+      <div class="img__cover">
+        <img class="img" src="{{ player.image }}" />
+      </div>
+      <div class="name">{{ player.name }}</div>
+      <div class="surname">{{ player.surname }}</div>
+      <div class="role">{{ player.role }}</div>
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Example icon button with a delete icon"
+        (click)="addPlayer(player._id)"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </mat-list-item>
+</mat-list>
