@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { player } from 'src/types/player';
-
-type playerDialog = {
-  player: player;
-  isSelected: boolean;
-};
+import { HttpService } from '../config/http.service';
 
 @Component({
   selector: 'app-team-generator',
@@ -12,32 +8,33 @@ type playerDialog = {
   styleUrls: ['./team-generator.component.scss'],
 })
 export class TeamGeneratorComponent implements OnInit {
-  ngOnInit(): void {}
+  constructor(private http: HttpService) {}
+
+  selectedPlayers: player[] = [];
+  notSelectedPlayers: player[] = [];
+  allPlayers: player[] = [];
+
+  ngOnInit(): void {
+    this.http.getPlayers().subscribe((data) => {
+      this.allPlayers = (data as any).data;
+      this.notSelectedPlayers = this.allPlayers;
+    });
+  }
 
   name: string = '';
-  selectedPlayers: playerDialog[] = [];
 
   addPlayerToTeam(playerId: string) {
-    const player = this.selectedPlayers.find(
-      (player) => player.player._id === playerId
-    )!;
-    this.selectedPlayers = this.selectedPlayers.filter(
-      (player) => player.player._id !== playerId
-    );
-
-    player.isSelected = true;
+    const player = this.allPlayers.find((pl) => pl._id === playerId)!;
     this.selectedPlayers.push(player);
+    this.notSelectedPlayers = this.allPlayers.filter(
+      (pl) => pl._id !== playerId
+    )!;
   }
 
   removePlayerFromTeam(playerId: string) {
-    const player = this.selectedPlayers.find(
-      (player) => player.player._id === playerId
-    )!;
-    this.selectedPlayers = this.selectedPlayers.filter(
-      (player) => player.player._id !== playerId
-    );
-    player.isSelected = false;
-    this.selectedPlayers.push(player);
+    const player = this.allPlayers.find((pl) => pl._id === playerId)!;
+    this.notSelectedPlayers.push(player);
+    this.selectedPlayers = this.allPlayers.filter((pl) => pl._id !== playerId)!;
   }
 
   nameInputHandler(event: any) {

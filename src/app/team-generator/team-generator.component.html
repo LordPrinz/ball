@@ -10,17 +10,18 @@
       />
     </mat-form-field>
     <mat-list>
-      <mat-list-item class="list__item" role="listitem">
+      <mat-list-item
+        class="list__item"
+        role="listitem"
+        *ngFor="let player of selectedPlayers"
+      >
         <div class="player">
           <div class="img__cover">
-            <img
-              class="img"
-              src="https://img.kaiheila.cn/emojis/5235203156208166/0143387bb3d4520go0go.png"
-            />
+            <img class="img" src="{{ player.image }}" />
           </div>
-          <div class="name">Robert</div>
-          <div class="surname">Lewandowski</div>
-          <div class="role">Napastnik</div>
+          <div class="name">{{ player.name }}</div>
+          <div class="surname">{{ player.surname }}</div>
+          <div class="role">{{ player.role }}</div>
           <button
             mat-button
             color="warn"
