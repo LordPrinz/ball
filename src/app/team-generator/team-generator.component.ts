@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { player } from 'src/types/player';
 import { HttpService } from '../config/http.service';
+import { PickPlayerDialogComponent } from '../pick-player-dialog/pick-player-dialog.component';
 
 @Component({
   selector: 'app-team-generator',
@@ -46,5 +47,10 @@ export class TeamGeneratorComponent implements OnInit {
     console.log('XD');
   }
 
-  openDialog() {}
+  openDialog() {
+    this.dialog.open(PickPlayerDialogComponent, {
+      width: '800px',
+      data: 'RIGHT CLICK',
+    });
+  }
 }
