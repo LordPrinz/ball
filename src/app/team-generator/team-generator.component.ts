@@ -28,15 +28,18 @@ export class TeamGeneratorComponent implements OnInit {
   addPlayerToTeam(playerId: string) {
     const player = this.allPlayers.find((pl) => pl._id === playerId)!;
     this.selectedPlayers.push(player);
-    this.notSelectedPlayers = this.allPlayers.filter(
+    this.notSelectedPlayers = this.notSelectedPlayers.filter(
       (pl) => pl._id !== playerId
-    )!;
+    );
   }
 
   removePlayerFromTeam(playerId: string) {
     const player = this.allPlayers.find((pl) => pl._id === playerId)!;
     this.notSelectedPlayers.push(player);
-    this.selectedPlayers = this.allPlayers.filter((pl) => pl._id !== playerId)!;
+
+    this.selectedPlayers = this.selectedPlayers.filter(
+      (pl) => pl._id !== playerId
+    );
   }
 
   nameInputHandler(event: any) {
@@ -53,8 +56,12 @@ export class TeamGeneratorComponent implements OnInit {
       data: this.notSelectedPlayers,
     });
 
-    popup.afterClosed().subscribe((data) => {
-      console.log(data);
+    popup.afterClosed().subscribe((data: player) => {
+      if (!data) {
+        return;
+      }
+
+      this.addPlayerToTeam(data._id);
     });
   }
 }
