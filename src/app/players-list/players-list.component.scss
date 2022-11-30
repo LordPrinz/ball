@@ -1,91 +1,92 @@
 .container {
-    margin: 4rem 5rem;
-    max-width: 192rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 3rem 1rem;
+  margin: 4rem 5rem;
+  max-width: 192rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 3rem 1rem;
 }
 
 .player {
-    min-width: 20rem;
-    max-width: 30rem;
-    border: 1px solid #eee;
-    border-bottom-right-radius: 4rem;
-    border-bottom-left-radius: 4rem;
-    padding-bottom: 1.5rem;
-    position: relative;
+  min-width: 20rem;
+  max-width: 30rem;
+  border: 1px solid #eee;
+  border-bottom-right-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+  padding-bottom: 1.5rem;
+  position: relative;
 }
 
 .image {
-    width: 100%;
-    object-fit: cover;
-    &__container {
-        max-height: 30rem;
-        overflow: hidden;
-        max-height: 225px;
-    }
+  width: 100%;
+  object-fit: cover;
+  &__container {
+    max-height: 30rem;
+    overflow: hidden;
+    max-height: 225px;
+  }
 }
 
 .role {
-    position: absolute;
-    bottom: -1rem;
-    left: 50%;
-    z-index: 3;
-    background-color: #fff;
-    padding: 0 0.5rem;
-    transform: translateX(-50%);
-    font-size: 1.2rem;
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  z-index: 3;
+  background-color: #fff;
+  padding: 0 0.5rem;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  width: max-content;
 }
 
 .name {
-    text-transform: uppercase;
-    font-size: 2rem;
-    margin-top: 3rem;
-    text-align: center;
-    position: relative;
-    padding-bottom: 2.5rem;
-    &::after {
-        content: "";
-        bottom: 0rem;
-        background-color: #aaa;
-        position: absolute;
-        width: 85%;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 1px;
-    }
-}
-
-.details {
-    margin-top: 1.5rem;
-    padding: 0 4rem;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    padding-bottom: 1rem;
-    text-transform: uppercase;
-    &--1 {
-        margin-top: 1rem;
-    }
-}
-
-.divider {
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 2.5rem;
+  &::after {
+    content: "";
+    bottom: 0rem;
+    background-color: #aaa;
     position: absolute;
     width: 85%;
     left: 50%;
     transform: translateX(-50%);
+    height: 1px;
+  }
+}
+
+.details {
+  margin-top: 1.5rem;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+  &--1 {
+    margin-top: 1rem;
+  }
+}
+
+.divider {
+  position: absolute;
+  width: 85%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .controller {
-    display: flex;
-    position: absolute;
-    justify-content: space-between;
-    width: 100%;
-    &> :last-child {
-        transform: scale(0.65) translate(3rem, -3rem);
-    }
-    &> :first-child {
-        transform: scale(0.65) translate(-3rem, -3rem);
-    }
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  width: 100%;
+  & > :last-child {
+    transform: scale(0.65) translate(3rem, -3rem);
+  }
+  & > :first-child {
+    transform: scale(0.65) translate(-3rem, -3rem);
+  }
 }
