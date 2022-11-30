@@ -25,6 +25,10 @@
     border-bottom: 1px solid #ccc;
     padding: 2rem 0;
   }
+  &:last-child {
+    padding-top: 22px;
+    padding-bottom: 15px;
+  }
 }
 
 .player {
