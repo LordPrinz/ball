@@ -42,4 +42,17 @@ export class HttpService {
   deletePlayer(id: string) {
     return this.http.delete(`${this.baseUrl}/players/${id}`);
   }
+
+  editPlayer(id: string, { name, surname, age, club, role, image }: any) {
+    const fd = new FormData();
+    if (image) {
+      fd.append('image', image, image.name);
+    }
+    fd.append('name', name);
+    fd.append('surname', surname);
+    fd.append('club', club);
+    fd.append('role', role);
+    fd.append('age', age);
+    return this.http.patch(`${this.baseUrl}/players/${id}`, fd);
+  }
 }

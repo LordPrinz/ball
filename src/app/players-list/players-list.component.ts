@@ -25,12 +25,19 @@ export class PlayersListComponent implements OnInit {
       data: this.allPlayers?.find((player) => player._id === id),
     });
 
-    popup.afterClosed().subscribe((data) => {
-      if (!data) {
-        return;
-      }
-
-      console.log(data);
+    popup.afterClosed().subscribe((response) => {
+      let player = this.allPlayers?.find((player) => player._id === id);
+      player!.age = response.age;
+      player!.club = response.club;
+      player!.image = player!.image;
+      player!.name = response.name;
+      player!.role = response.role;
+      player!.surname = response.surname;
+      const editedPlayers = this.allPlayers?.filter(
+        (player) => player._id !== id
+      );
+      editedPlayers?.push(player!);
+      this.allPlayers = editedPlayers;
     });
   }
 
