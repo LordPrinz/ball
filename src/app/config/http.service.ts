@@ -33,6 +33,12 @@ export class HttpService {
     fd.append('age', age);
     return this.http.post(`${this.baseUrl}/players`, fd);
   }
+  createTeam(name: string, ids: string[]) {
+    return this.http.post(`${this.baseUrl}/teams`, {
+      name,
+      players: ids,
+    });
+  }
   deletePlayer(id: string) {
     return this.http.delete(`${this.baseUrl}/players/${id}`);
   }

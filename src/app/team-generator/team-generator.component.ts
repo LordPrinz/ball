@@ -45,7 +45,29 @@ export class TeamGeneratorComponent implements OnInit {
     this.name = event.target.value;
   }
 
-  submitHandler() {}
+  submitHandler() {
+    if (this.selectedPlayers.length < 11) {
+      alert('Not enough players');
+      return;
+    }
+
+    const roles = this.selectedPlayers.map((player) => player.role);
+
+    if (!roles.find((role) => (role as any) === 'Goalkeeper')) {
+      alert('No Goalkeeper');
+      return;
+    }
+
+    const playerIds = this.selectedPlayers.map((player) => player._id);
+    this.http.createTeam(this.name, playerIds).subscribe((data) => {
+      if ((data as any).status === 'success') {
+        alert('Team Created!');
+        this.selectedPlayers = [];
+      } else {
+        alert('Something went wrong!');
+      }
+    });
+  }
 
   openDialog() {
     const popup = this.dialog.open(PickPlayerDialogComponent, {
