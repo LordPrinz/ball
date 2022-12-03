@@ -11,7 +11,6 @@ import { PickPlayerDialogComponent } from '../pick-player-dialog/pick-player-dia
 })
 export class TeamGeneratorComponent implements OnInit {
   constructor(private http: HttpService, public dialog: MatDialog) {}
-
   selectedPlayers: player[] = [];
   notSelectedPlayers: player[] = [];
   allPlayers: player[] = [];
@@ -46,14 +45,15 @@ export class TeamGeneratorComponent implements OnInit {
     this.name = event.target.value;
   }
 
-  submitHandler() {
-    console.log('XD');
-  }
+  submitHandler() {}
 
   openDialog() {
     const popup = this.dialog.open(PickPlayerDialogComponent, {
       width: '800px',
-      data: this.notSelectedPlayers,
+      data: {
+        notSelectedPlayers: this.notSelectedPlayers,
+        selectedPlayers: this.selectedPlayers,
+      },
     });
 
     popup.afterClosed().subscribe((data: player) => {

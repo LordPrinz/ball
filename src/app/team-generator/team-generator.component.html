@@ -1,43 +1,29 @@
 <div class="container">
-  <div class="form">
-    <mat-form-field class="full-width input">
-      <mat-label>Team Name</mat-label>
-      <input
-        matInput
-        required
-        (input)="nameInputHandler($event)"
-        value="{{ name }}"
-      />
-    </mat-form-field>
-    <mat-list>
-      <mat-list-item
-        class="list__item"
-        role="listitem"
-        *ngFor="let player of selectedPlayers"
-      >
-        <div class="player">
-          <div class="img__cover">
-            <img class="img" src="{{ player.image }}" />
-          </div>
-          <div class="name">{{ player.name }}</div>
-          <div class="surname">{{ player.surname }}</div>
-          <div class="role">{{ player.role }}</div>
-          <button
-            mat-button
-            color="warn"
-            aria-label="Example icon button with a delete icon"
-            (click)="removePlayerFromTeam(player._id)"
-          >
+    <div class="form">
+        <mat-form-field class="full-width input">
+            <mat-label>Team Name</mat-label>
+            <input matInput required (input)="nameInputHandler($event)" value="{{ name }}" />
+        </mat-form-field>
+        <mat-list>
+            <mat-list-item class="list__item" role="listitem" *ngFor="let player of selectedPlayers">
+                <div class="player">
+                    <div class="img__cover">
+                        <img class="img" src="{{ player.image }}" />
+                    </div>
+                    <div class="name">{{ player.name }}</div>
+                    <div class="surname">{{ player.surname }}</div>
+                    <div class="role">{{ player.role }}</div>
+                    <button mat-button color="warn" aria-label="Example icon button with a delete icon" (click)="removePlayerFromTeam(player._id)">
             <mat-icon>delete</mat-icon>
           </button>
-        </div>
-      </mat-list-item>
-    </mat-list>
-    <button class="addNew" mat-stroked-button (click)="openDialog()">
+                </div>
+            </mat-list-item>
+        </mat-list>
+        <button class="addNew" mat-stroked-button (click)="openDialog()" *ngIf="selectedPlayers.length < 4">
       Add Player
     </button>
-    <button class="submit" mat-stroked-button (click)="submitHandler()">
+        <button class="submit" mat-stroked-button (click)="submitHandler()">
       Submit
     </button>
-  </div>
+    </div>
 </div>
