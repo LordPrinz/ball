@@ -26,6 +26,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { PickPlayerDialogComponent } from './pick-player-dialog/pick-player-dialog.component';
+import { PlayerEditComponent } from './player-edit/player-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { PickPlayerDialogComponent } from './pick-player-dialog/pick-player-dial
     PlayerDetailComponent,
     TeamDetailComponent,
     PickPlayerDialogComponent,
+    PlayerEditComponent,
   ],
   imports: [
     BrowserModule,

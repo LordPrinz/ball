@@ -1,0 +1,51 @@
+<form class="form" (submit)="onUpload($event)">
+    <h3 class="heading">Edit Player</h3>
+    <mat-form-field class="full-width input">
+        <mat-label>Name</mat-label>
+        <input matInput required (input)="nameInputHandler($event)" value="{{ name }}" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width input">
+        <mat-label>Surname</mat-label>
+        <input matInput required (input)="surnameInputHandler($event)" value="{{ surname }}" />
+    </mat-form-field>
+    <mat-form-field class="full-width input">
+        <mat-label>Age</mat-label>
+        <input type="number" matInput required (input)="ageInputHandler($event)" min="17" max="99" value="{{ age }}" />
+    </mat-form-field>
+    <mat-form-field class="full-width input">
+        <mat-label>Club</mat-label>
+        <input matInput required (input)="clubInputHandler($event)" value="{{ club }}" />
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl.value" [floatLabel]="getFloatLabelValue()" class="full-width">
+        <mat-select required (selectionChange)="roleInputHandler($event)" value="{{ role }}">
+            <mat-option>-- None --</mat-option>
+            <mat-option value="Goalkeeper">Goalkeeper</mat-option>
+            <mat-option value="Centre-Backs">Centre-Backs</mat-option>
+            <mat-option value="Full-Backs">Full-Backs</mat-option>
+            <mat-option value="Wing-Backs">Wing-Backs</mat-option>
+            <mat-option value="Defensive Midfielders">Defensive Midfielders</mat-option>
+            <mat-option value="Central Midfielders">Central Midfielders</mat-option>
+            <mat-option value="Attacking Midfielders">Attacking Midfielders</mat-option>
+            <mat-option value="Wingers">Wingers</mat-option>
+            <mat-option value="Inside Forwards">Inside Forwards</mat-option>
+            <mat-option value="Striker">Striker</mat-option>
+        </mat-select>
+        <mat-label>Role</mat-label>
+    </mat-form-field>
+    <div class="buttons-container">
+        <label class="image-upload-container btn btn-bwm">
+      <span>Select Image</span>
+      <input
+        mat-raised-button
+        #imageInput
+        type="file"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+        class="image-upload"
+        value="{{ selectedFile?.name }}"
+      />
+    </label>
+        <button mat-stroked-button>Submit</button>
+    </div>
+</form>

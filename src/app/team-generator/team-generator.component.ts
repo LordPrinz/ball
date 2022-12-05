@@ -11,7 +11,6 @@ import { PickPlayerDialogComponent } from '../pick-player-dialog/pick-player-dia
 })
 export class TeamGeneratorComponent implements OnInit {
   constructor(private http: HttpService, public dialog: MatDialog) {}
-
   selectedPlayers: player[] = [];
   notSelectedPlayers: player[] = [];
   allPlayers: player[] = [];
@@ -47,36 +46,36 @@ export class TeamGeneratorComponent implements OnInit {
   }
 
   submitHandler() {
-    if (this.selectedPlayers.length !== 11) {
-      alert('Your team must have 11 players');
+    if (this.selectedPlayers.length < 11) {
+      alert('Not enough players');
+      return;
     }
-    const roles = this.selectedPlayers.map((player) =>
-      player.role.toString().toUpperCase()
-    );
 
-    let currentRoleAmount = 0;
-    let prevRole: string;
-    const rolesAmount = roles.sort().map((role) => {
-      if (role !== prevRole) {
-        const tempRole = prevRole;
-        prevRole = role;
+    const roles = this.selectedPlayers.map((player) => player.role);
 
-        return {
-          role: tempRole,
-          amount: currentRoleAmount,
-        };
+    if (!roles.find((role) => (role as any) === 'Goalkeeper')) {
+      alert('No Goalkeeper');
+      return;
+    }
+
+    const playerIds = this.selectedPlayers.map((player) => player._id);
+    this.http.createTeam(this.name, playerIds).subscribe((data) => {
+      if ((data as any).status === 'success') {
+        alert('Team Created!');
+        this.selectedPlayers = [];
       } else {
-        currentRoleAmount++;
+        alert('Something went wrong!');
       }
     });
-
-    console.log(rolesAmount);
   }
 
   openDialog() {
     const popup = this.dialog.open(PickPlayerDialogComponent, {
       width: '800px',
-      data: this.notSelectedPlayers,
+      data: {
+        notSelectedPlayers: this.notSelectedPlayers,
+        selectedPlayers: this.selectedPlayers,
+      },
     });
 
     popup.afterClosed().subscribe((data: player) => {
