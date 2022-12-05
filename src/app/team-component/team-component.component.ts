@@ -78,4 +78,8 @@ export class TeamComponentComponent implements OnInit {
         console.log(data);
       });
   }
+
+  editName(id: string) {
+    console.log('XD');
+  }
 }

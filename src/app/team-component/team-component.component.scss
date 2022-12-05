@@ -21,6 +21,7 @@ button:last-child {
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 1rem;
   min-width: 18rem;
+  position: relative;
 }
 
 .image {
@@ -40,5 +41,12 @@ button:last-child {
 }
 
 .deletePlayerButton {
-  border-radius: 0;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  transform: scale(0.8);
+}
+
+.editName {
+  transform: translateX(-10px) translateY(-5px);
 }

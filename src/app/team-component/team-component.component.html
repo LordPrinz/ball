@@ -1,15 +1,25 @@
 <mat-card class="mainCover">
-  <mat-card-title>{{ teamData?.name || "untitled" }}</mat-card-title>
+  <mat-card-title
+    >{{ teamData?.name || "untitled" }}
+    <button
+      mat-icon-button
+      color="primary"
+      (click)="editName(teamData!._id)"
+      *ngIf="isEditMode"
+      class="editName"
+    >
+      <mat-icon>edit</mat-icon>
+    </button></mat-card-title
+  >
   <mat-card-content class="playersContainer">
     <div class="playerCard" *ngFor="let player of players">
       <button
-        mat-flat-button
+        mat-mini-fab
         color="warn"
         (click)="deletePlayer(teamData!._id, player!._id)"
         *ngIf="isEditMode"
         class="deletePlayerButton"
       >
-        Delete Player
         <mat-icon>delete</mat-icon>
       </button>
       <img
