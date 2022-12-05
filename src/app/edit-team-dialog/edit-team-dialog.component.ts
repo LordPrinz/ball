@@ -29,4 +29,12 @@ export class EditTeamDialogComponent implements OnInit {
       )!;
     });
   }
+
+  addPlayer(id: string) {
+    const player = this.notSelectedPlayers.filter((pl) => pl._id === id)![0];
+    this.notSelectedPlayers = this.notSelectedPlayers.filter(
+      (pl) => pl._id !== id
+    );
+    this.Ref.close(player);
+  }
 }
