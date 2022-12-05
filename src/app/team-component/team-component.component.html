@@ -1,25 +1,29 @@
 <mat-card class="mainCover">
-    <mat-card-title>{{ teamData?.name || "untitled" }}</mat-card-title>
-    <mat-card-content class="playersContainer">
-        <div class="playerCard" *ngFor="let player of players">
-            <img class="image" mat-card-md-image src="{{
+  <mat-card-title>{{ teamData?.name || "untitled" }}</mat-card-title>
+  <mat-card-content class="playersContainer">
+    <div class="playerCard" *ngFor="let player of players">
+      <img
+        class="image"
+        mat-card-md-image
+        src="{{
           player?.image ||
             'https://img.kaiheila.cn/emojis/5235203156208166/0143387bb3d4520go0go.png'
-        }}" />
-            <h3 class="name">
-                {{ player?.name || "Deleted" }} {{ player?.surname || "Player" }}
-            </h3>
-            <div class="role">{{ player?.role || "unknown" }}</div>
-        </div>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-flat-button color="primary">
+        }}"
+      />
+      <h3 class="name">
+        {{ player?.name || "Deleted" }} {{ player?.surname || "Player" }}
+      </h3>
+      <div class="role">{{ player?.role || "unknown" }}</div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="editTeam(teamData!._id)">
       Edit Team
       <mat-icon>edit</mat-icon>
     </button>
-        <button mat-flat-button color="warn" (click)="deleteTeam(teamData!._id)">
+    <button mat-flat-button color="warn" (click)="deleteTeam(teamData!._id)">
       Delete Team
       <mat-icon>delete</mat-icon>
     </button>
-    </mat-card-actions>
+  </mat-card-actions>
 </mat-card>

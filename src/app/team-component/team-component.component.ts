@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { player } from 'src/types/player';
 import { team } from 'src/types/team';
 import { HttpService } from '../config/http.service';
+import { EditTeamDialogComponent } from '../edit-team-dialog/edit-team-dialog.component';
 
 @Component({
   selector: 'app-team-component',
@@ -9,7 +11,7 @@ import { HttpService } from '../config/http.service';
   styleUrls: ['./team-component.component.scss'],
 })
 export class TeamComponentComponent implements OnInit {
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService, public dialog: MatDialog) {}
 
   @Input()
   teamData: team | undefined;
@@ -29,5 +31,20 @@ export class TeamComponentComponent implements OnInit {
   deleteTeam(id: string): void {
     this.http.deleteTeam(id);
     this.onDeleteTeam.emit(id);
+  }
+
+  editTeam(id: string): void {
+    const popup = this.dialog.open(EditTeamDialogComponent, {
+      width: '800px',
+      data: {
+        players: this.players,
+      },
+    });
+
+    popup.afterClosed().subscribe((data: player) => {
+      if (!data) {
+        return;
+      }
+    });
   }
 }
