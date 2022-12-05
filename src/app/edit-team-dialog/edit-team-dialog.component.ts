@@ -27,6 +27,13 @@ export class EditTeamDialogComponent implements OnInit {
       this.notSelectedPlayers = this.allPlayers?.filter(
         (ar) => !this.selectedPlayers.find((rm) => ar._id === rm._id)
       )!;
+      const roles = this.selectedPlayers.map((player) => player.role);
+
+      if (roles.find((role) => (role as any) === 'Goalkeeper')) {
+        this.notSelectedPlayers = this.notSelectedPlayers.filter(
+          (player) => (player.role as any) !== 'Goalkeeper'
+        );
+      }
     });
   }
 

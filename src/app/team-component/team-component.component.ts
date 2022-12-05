@@ -45,6 +45,9 @@ export class TeamComponentComponent implements OnInit {
       if (!data) {
         return;
       }
+      this.players.push(data);
+
+      const playersIds = this.players.map((player) => player._id);
     });
   }
 }
