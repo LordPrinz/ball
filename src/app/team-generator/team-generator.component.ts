@@ -47,7 +47,30 @@ export class TeamGeneratorComponent implements OnInit {
   }
 
   submitHandler() {
-    console.log('XD');
+    if (this.selectedPlayers.length !== 11) {
+      alert('Your team must have 11 players');
+    }
+    const roles = this.selectedPlayers.map((player) =>
+      player.role.toString().toUpperCase()
+    );
+
+    let currentRoleAmount = 0;
+    let prevRole: string;
+    const rolesAmount = roles.sort().map((role) => {
+      if (role !== prevRole) {
+        const tempRole = prevRole;
+        prevRole = role;
+
+        return {
+          role: tempRole,
+          amount: currentRoleAmount,
+        };
+      } else {
+        currentRoleAmount++;
+      }
+    });
+
+    console.log(rolesAmount);
   }
 
   openDialog() {
