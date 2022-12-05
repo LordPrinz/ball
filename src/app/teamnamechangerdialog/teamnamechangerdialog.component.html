@@ -1,0 +1,13 @@
+<form class="form" (submit)="onSubmit($event)">
+  <h3 class="heading">Edit Team Name</h3>
+  <mat-form-field class="full-width input">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      required
+      (input)="nameInputHandler($event)"
+      value="{{ newName }}"
+    />
+  </mat-form-field>
+  <button mat-stroked-button>Submit</button>
+</form>

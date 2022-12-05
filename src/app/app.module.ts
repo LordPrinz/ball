@@ -28,6 +28,7 @@ import { MatListModule } from '@angular/material/list';
 import { PickPlayerDialogComponent } from './pick-player-dialog/pick-player-dialog.component';
 import { PlayerEditComponent } from './player-edit/player-edit.component';
 import { EditTeamDialogComponent } from './edit-team-dialog/edit-team-dialog.component';
+import { TeamnamechangerdialogComponent } from './teamnamechangerdialog/teamnamechangerdialog.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { EditTeamDialogComponent } from './edit-team-dialog/edit-team-dialog.com
     PickPlayerDialogComponent,
     PlayerEditComponent,
     EditTeamDialogComponent,
+    TeamnamechangerdialogComponent,
   ],
   imports: [
     BrowserModule,

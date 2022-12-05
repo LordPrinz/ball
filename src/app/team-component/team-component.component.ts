@@ -4,6 +4,7 @@ import { player } from 'src/types/player';
 import { team } from 'src/types/team';
 import { HttpService } from '../config/http.service';
 import { EditTeamDialogComponent } from '../edit-team-dialog/edit-team-dialog.component';
+import { TeamnamechangerdialogComponent } from '../teamnamechangerdialog/teamnamechangerdialog.component';
 
 @Component({
   selector: 'app-team-component',
@@ -14,7 +15,7 @@ export class TeamComponentComponent implements OnInit {
   constructor(private http: HttpService, public dialog: MatDialog) {}
 
   @Input()
-  teamData: team | undefined;
+  teamData!: team;
   players: player[] = [];
   isEditMode = false;
 
@@ -39,6 +40,10 @@ export class TeamComponentComponent implements OnInit {
   }
 
   cancelEdit(id: string) {
+    if (this.players.length !== 11) {
+      alert('You should choose 11 players.');
+      return;
+    }
     this.isEditMode = false;
   }
 
@@ -80,6 +85,14 @@ export class TeamComponentComponent implements OnInit {
   }
 
   editName(id: string) {
-    console.log('XD');
+    const popup = this.dialog.open(TeamnamechangerdialogComponent, {
+      width: '600px',
+      data: {
+        team: this.teamData,
+      },
+    });
+    popup.afterClosed().subscribe((data) => {
+      this.teamData!.name = data;
+    });
   }
 }
