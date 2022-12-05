@@ -16,6 +16,7 @@ export class TeamComponentComponent implements OnInit {
   @Input()
   teamData: team | undefined;
   players: player[] = [];
+  isEditMode = false;
 
   @Output() onDeleteTeam = new EventEmitter<string>();
 
@@ -34,21 +35,26 @@ export class TeamComponentComponent implements OnInit {
   }
 
   editTeam(id: string): void {
+    this.isEditMode = true;
+  }
+
+  cancelEdit(id: string) {
+    this.isEditMode = false;
+  }
+
+  addPlayer(id: string) {
     const popup = this.dialog.open(EditTeamDialogComponent, {
       width: '800px',
       data: {
         players: this.players,
       },
     });
-
     popup.afterClosed().subscribe((data: player) => {
       if (!data) {
         return;
       }
       this.players.push(data);
-
       const playersIds = this.players.map((player) => player._id);
-
       this.http
         .editTeam(id, {
           playerIds: playersIds,
@@ -57,5 +63,19 @@ export class TeamComponentComponent implements OnInit {
           console.log(data);
         });
     });
+  }
+
+  deletePlayer(teamId: string, playerId: string) {
+    this.players = this.players.filter((player) => playerId !== player._id);
+
+    const playersIds = this.players.map((player) => player._id);
+
+    this.http
+      .editTeam(teamId, {
+        playerIds: playersIds,
+      })
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }
