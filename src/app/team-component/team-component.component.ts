@@ -48,6 +48,14 @@ export class TeamComponentComponent implements OnInit {
       this.players.push(data);
 
       const playersIds = this.players.map((player) => player._id);
+
+      this.http
+        .editTeam(id, {
+          playerIds: playersIds,
+        })
+        .subscribe((data) => {
+          console.log(data);
+        });
     });
   }
 }

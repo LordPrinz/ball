@@ -57,7 +57,7 @@ export class HttpService {
   }
   editTeam(
     id: string,
-    { name, playerIds }: { name: string; playerIds: string[] }
+    { name, playerIds }: { name?: string; playerIds?: string[] }
   ) {
     return this.http.patch(`${this.baseUrl}/teams/${id}`, {
       name,
